@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>08-js-sum-variable</title>
+    <script>
+        function sum_number(n1, n2){
+            document.getElementById("output").innerHTML=parseInt (n1)+ parseInt(n2)
+
+        }
+
+    </script>
+</head>
+<body>
+    Num1: <input type="text" name="" id="num1">
+    <br>
+    <br>
+    Num2: <input type="text" name="" id="num2">
+    <br>
+    <br>
+    <input onclick="sum_number(document.getElementById('num1').value,document.getElementById('num2').value)" type="button" value="Submit">
+    <br>
+    <br>
+    Ans : <b id="output"></b>
+</body>
+</html>
