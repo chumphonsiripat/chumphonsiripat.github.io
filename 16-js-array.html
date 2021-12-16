@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array.HTML</title>
+
+</head>
+<body>
+    <script>
+         let car = ["Mazda","toyota","Hundai","Test","Honda"]
+        // for(let i = 0;i<car.length;i++){
+        //     document.write(car[i]+"<br>")
+        // }
+    </script>
+    
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+        </tr>
+        <script>
+            for(let i in car){
+                document.write("<tr>")
+                document.write("<td>"+i+"</td>")
+                document.write("<td>"+car[i]+"</td>")
+                document.write("</tr>")
+        }
+        </script>
+    </table>
+</body>
+</html>
