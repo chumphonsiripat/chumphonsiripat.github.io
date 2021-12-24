@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <title>33-js-set-student-storage-array.html</title>
+
+      <script>
+        let local_employee = localStorage.getItem('employee')
+        let employee = []
+        let empid
+        let empname
+
+        function setdata() {
+            employee = eval(local_employee)
+            empid = document.getElementById("empid").value
+            empname = document.getElementById("empname").value
+            if (empid != '' && empname != '') {
+                if (employee == null) {
+                    employee = [{ "empid": empid, "empname": empname }]
+                } else {
+                    employee.push({ "empid": empid, "empname": empname })
+                }
+                localStorage.setItem('employee', JSON.stringify(employee))
+                local_employee = localStorage.getItem('employee')
+                document.getElementById('empid').value = ''
+                document.getElementById('empname').value = ''
+                alert('บันทึกข้อมูลเรียบร้อยแล้ว')
+            } else {
+                alert('ป้อนข้อมูลสิครับ')
+            }
+
+        }
+        function resetdata() {
+            document.getElementById('empid').value = ''
+            document.getElementById('empname').value = ''
+        }
+
+        function deleteStorage() {
+            if (confirm('ต้องการลบข้อมูลใช่หรือไม่')) {
+                localStorage.removeItem('employee')
+                employee = []
+                local_employee = null
+            }
+        }
+
+    </script>
+        <style>
+          .jumbotron{
+              position: relative;
+              overflow: hidden;
+          }
+          video{
+              position: absolute;
+              z-index: 1;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }
+          .container{
+              z-index: 2;
+              position: relative;
+          }
+          body{
+            font-family: 'Prompt', sans-serif;
+          }
+      </style>
+   
+</head>
+<body>
+    <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid mb-0 text-light" 
+    style="background-color: rgb(23, 100, 3); ">
+        
+        <video 
+            src="https://cdn.videvo.net/videvo_files/video/free/2020-05/large_watermarked/3d_ocean_1590675653_preview.mp4" 
+            autoplay loop muted></video>
+        
+            <div class="container">
+          <h1 class="display-4">Chumphon Siripat</h1>
+          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+      </div>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(157, 158, 250);">
+        <a class="navbar-brand">
+            <path d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527z"/>
+          </svg>
+          Chumphon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="33-js-set-student-storage-array.html">บันทึกข้อมูล <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="34-js-get-student-storage-array.html">แสดงข้อมูล </a>
+            </li>            
+          </ul>
+        </div>
+      </nav>
+
+      <!-- card -->
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-sm-6 mx-auto">
+          <div class="card mt-5 w-100 h-100" style="width: 18rem;">
+            <img src="https://herveybaysportfishing.com.au/wp-content/uploads/2020/05/Vessels-Header-Background.jpg"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">บันทึกข้อมูลพนักงาน</h5>
+              <p class="card-text">
+              <div class="form-group">
+                <label for="exampleInputEmail1">รหัสพนักงาน</label>
+                <input type="text" class="form-control" id="empid">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">ชื่อ-นามสกุล</label>
+                <input type="text" class="form-control" id="empname">
+              </div>
+              <input onclick="setdata()" class="btn btn-dark" type="submit" value="Submit">
+              <input onclick="resetdata()" class="btn btn-primary" type="reset" value="Reset">
+              <input onclick="deleteStorage()" class="btn btn-danger" type="button" value="Delete Storage"> 
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+  
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>
